@@ -9,8 +9,12 @@
 /src/main/resources/ConfigurationFiles
 
 /docker
-/rabbitmq/*
+/rabbitmq
 docker-compose.yml
 Dockerfile
 launch_botica.sh
 /tmp
+
+# RESTest generated files
+/src/main/resources/Examples/*/test_cases/
+/src/main/resources/Examples/*/allure_report/
