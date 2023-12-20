@@ -1,0 +1,16 @@
+# VSCode Settings
+/.vscode/
+
+# DS_Store Files
+**/.DS_Store
+
+# Generated Files
+/target
+/src/main/resources/ConfigurationFiles
+
+/docker
+/rabbitmq/*
+docker-compose.yml
+Dockerfile
+launch_botica.sh
+/tmp
