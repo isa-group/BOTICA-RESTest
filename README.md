@@ -1,5 +1,8 @@
 # BOTICA - RESTest
 
+> [!NOTE]
+> This project was created using the [BOTICA template for Java](https://github.com/migromarj/BOTICA-java-template).
+
 ## Running RESTest with BOTICA
 
 1. **Clone or download the project from the repository.**
