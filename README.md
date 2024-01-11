@@ -15,10 +15,14 @@
 
 4. **Generate the necessary files to launch the BOTICA environment.**
 
-    Run the following maven command at the root of the project:
-    ```
-    mvn exec:java@configuration-setup
-    ```
+    - To use the default file located in `src/main/resources/BOTICAConfig/configuration-setup.properties`, run the following maven command at the root of the project:
+        ```
+        mvn exec:java@configuration-setup
+        ```
+    - To use a file located in another path, run the following maven command at the root of the project:
+        ```
+        mvn exec:java@configuration-setup -Dexec.args="path/to/file"
+        ```
 
 5. **Launch the BOTICA environment.**
 
@@ -29,7 +33,11 @@
 
 6. **Launch the data collector bot.**
 
-   Run the following maven command at the root of the project:
-   ```
-   mvn exec:java@launch-collector
-   ```
+   - To use the default file located in `src/main/resources/BOTICAConfig/collector.properties`, run the following maven command at the root of the project:
+       ```
+       mvn exec:java@launch-collector
+       ```
+   - To use a file located in another path, run the following maven command at the root of the project:
+       ```
+       mvn exec:java@launch-collector -Dexec.args="path/to/file"
+       ```
