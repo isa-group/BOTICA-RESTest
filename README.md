@@ -29,7 +29,12 @@
 
 5. **Launch the BOTICA environment.**
 
-    Run the following maven command at the root of the project:
+    In case you are using **Windows operating system**, you should run the following command from Git Bash:
+    ```
+    sh launch_botica.sh
+    ```
+
+    If, on the other hand, you are using a **Unix-based system**, run the following maven command at the root of the project:
     ```
     mvn exec:exec@launch-botica
     ```
