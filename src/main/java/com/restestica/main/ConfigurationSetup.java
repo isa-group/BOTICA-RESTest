@@ -19,11 +19,13 @@ public class ConfigurationSetup {
         String botsPropertiesPath = configurationLoader.getBotsPropertiesPath();
         String rabbitMQExchange = configurationLoader.getRabbitMQExchange();
         String rabbitMQConfigurationPath = configurationLoader.getRabbitMQConfigurationPath();
+        String rabbitMQPortsConfigurationPath = configurationLoader.getRabbitMQPortsConfigurationPath();
         String rabbitMQConnectionPath = configurationLoader.getRabbitMQConnectionPath();
         String rabbitMQUsername = configurationLoader.getRabbitMQUsername();
         String rabbitMQPassword = configurationLoader.getRabbitMQPassword();
         String rabbitMQHost = configurationLoader.getRabbitMQHost();
-        Integer rabbitMQPort = configurationLoader.getRabbitMQPort();
+        Integer rabbitMQAMQPPort = configurationLoader.getRabbitMQAMQPPort();
+        Integer rabbitMQUIPort = configurationLoader.getRabbitMQUIPort();
         String dockerComposePath = configurationLoader.getDockerComposePath();
         String dummyDockerfilePath = configurationLoader.getDummyDockerfilePath();
         String boticaDockerfilePath = configurationLoader.getBoticaDockerfilePath();
@@ -34,8 +36,9 @@ public class ConfigurationSetup {
 
         CreateConfiguration.createBotPropertiesFiles(botsDefinitionPath, botsPropertiesPath);
         CreateConfiguration.createRabbitMQConfigFile(rabbitMQExchange, rabbitMQConfigurationPath);
-        CreateConfiguration.createRabbitMQConnectionFile(rabbitMQConnectionPath, rabbitMQUsername, rabbitMQPassword, rabbitMQHost, rabbitMQPort, rabbitMQExchange);
-        CreateConfiguration.createDockerCompose(dockerComposePath);
+        CreateConfiguration.createRabbitMQPortsConfigurationFile(rabbitMQPortsConfigurationPath, rabbitMQAMQPPort, rabbitMQUIPort);
+        CreateConfiguration.createRabbitMQConnectionFile(rabbitMQConnectionPath, rabbitMQUsername, rabbitMQPassword, rabbitMQHost, rabbitMQAMQPPort, rabbitMQExchange);
+        CreateConfiguration.createDockerCompose(dockerComposePath, rabbitMQPortsConfigurationPath, rabbitMQConfigurationPath,rabbitMQAMQPPort, rabbitMQUIPort);
         CreateConfiguration.createDummyDockerfile(dummyDockerfilePath);
         CreateConfiguration.createBoticaDockerfile(boticaDockerfilePath, jarFileName);
         CreateConfiguration.createInitVolumeScript(initVolumeScriptPath);
