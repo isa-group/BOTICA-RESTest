@@ -31,7 +31,8 @@ public class ConfigurationSetup {
         String boticaDockerfilePath = configurationLoader.getBoticaDockerfilePath();
         String jarFileName = configurationLoader.getJarFileName();
         String initVolumeScriptPath = configurationLoader.getInitVolumeScriptPath();
-        String mainLaunchScript = configurationLoader.getMainLaunchScript();
+        String unixMainLaunchScript = configurationLoader.getUnixMainLaunchScript();
+        String windowsMainLaunchScript = configurationLoader.getWindowsMainLaunchScript();
         String boticaImageName = configurationLoader.getBoticaImageName();
 
         CreateConfiguration.createBotPropertiesFiles(botsDefinitionPath, botsPropertiesPath);
@@ -42,6 +43,7 @@ public class ConfigurationSetup {
         CreateConfiguration.createDummyDockerfile(dummyDockerfilePath);
         CreateConfiguration.createBoticaDockerfile(boticaDockerfilePath, jarFileName);
         CreateConfiguration.createInitVolumeScript(initVolumeScriptPath);
-        CreateConfiguration.createMainScript(mainLaunchScript, dummyDockerfilePath, initVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
+        CreateConfiguration.createUnixMainScript(unixMainLaunchScript, dummyDockerfilePath, initVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
+        CreateConfiguration.createWindowsMainScript(windowsMainLaunchScript, dummyDockerfilePath, initVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
     }
 }

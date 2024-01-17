@@ -97,12 +97,21 @@
           </execution>
           <!-- Launch BOTICA -->
           <execution>
-            <id>launch-botica</id>
+            <id>launch-botica-unix</id>
             <goals>
               <goal>exec</goal>
             </goals>
             <configuration>
               <executable>launch_botica.sh</executable>
+            </configuration>
+          </execution>
+          <execution>
+            <id>launch-botica-windows</id>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>launch_botica.bat</executable>
             </configuration>
           </execution>
           <!-- Launch collector -->
