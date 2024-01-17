@@ -27,6 +27,13 @@
       <version>20231013</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/es.us.isa/json-mutator -->
+    <dependency>
+      <groupId>es.us.isa</groupId>
+      <artifactId>json-mutator</artifactId>
+      <version>0.0.1</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/es.us.isa/restest -->
     <dependency>
       <groupId>es.us.isa</groupId>
