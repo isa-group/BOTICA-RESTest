@@ -30,7 +30,8 @@ public class ConfigurationSetup {
         String dummyDockerfilePath = configurationLoader.getDummyDockerfilePath();
         String boticaDockerfilePath = configurationLoader.getBoticaDockerfilePath();
         String jarFileName = configurationLoader.getJarFileName();
-        String initVolumeScriptPath = configurationLoader.getInitVolumeScriptPath();
+        String unixInitVolumeScriptPath = configurationLoader.getUnixInitVolumeScriptPath();
+        String windowsInitVolumeScriptPath = configurationLoader.getWindowsInitVolumeScriptPath();
         String unixMainLaunchScript = configurationLoader.getUnixMainLaunchScript();
         String windowsMainLaunchScript = configurationLoader.getWindowsMainLaunchScript();
         String boticaImageName = configurationLoader.getBoticaImageName();
@@ -42,8 +43,9 @@ public class ConfigurationSetup {
         CreateConfiguration.createDockerCompose(dockerComposePath, rabbitMQPortsConfigurationPath, rabbitMQConfigurationPath,rabbitMQAMQPPort, rabbitMQUIPort);
         CreateConfiguration.createDummyDockerfile(dummyDockerfilePath);
         CreateConfiguration.createBoticaDockerfile(boticaDockerfilePath, jarFileName);
-        CreateConfiguration.createInitVolumeScript(initVolumeScriptPath);
-        CreateConfiguration.createUnixMainScript(unixMainLaunchScript, dummyDockerfilePath, initVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
-        CreateConfiguration.createWindowsMainScript(windowsMainLaunchScript, dummyDockerfilePath, initVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
+        CreateConfiguration.createUnixInitVolumeScript(unixInitVolumeScriptPath);
+        CreateConfiguration.createWindowsInitVolumeScript(windowsInitVolumeScriptPath);
+        CreateConfiguration.createUnixMainScript(unixMainLaunchScript, dummyDockerfilePath, unixInitVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
+        CreateConfiguration.createWindowsMainScript(windowsMainLaunchScript, dummyDockerfilePath, windowsInitVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
     }
 }
