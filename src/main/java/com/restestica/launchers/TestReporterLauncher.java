@@ -133,4 +133,9 @@ public class TestReporterLauncher extends AbstractLauncher {
 		
 		return arm;
 	}
+
+    @Override
+    protected boolean shutdownCondition() {
+        return true;
+    }
 }

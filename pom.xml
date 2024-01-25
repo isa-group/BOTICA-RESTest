@@ -124,6 +124,16 @@
               <mainClass>com.restestica.main.LaunchCollector</mainClass>
             </configuration>
           </execution>
+          <!-- Launch collector -->
+          <execution>
+            <id>launch-shutdown</id>
+            <goals>
+              <goal>java</goal>
+            </goals>
+            <configuration>
+              <mainClass>com.restestica.main.LaunchShutdown</mainClass>
+            </configuration>
+          </execution>
           <!-- Generate template -->
           <execution>
             <id>generate-template</id>
