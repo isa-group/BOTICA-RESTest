@@ -29,13 +29,17 @@
 
 5. **Launch the BOTICA environment.**
 
-    In case you are using **Windows operating system**, you should run the following maven command at the root of the project:
+    In case you are using **Windows operating system**, you can **run the generated .bat file** in the root of your project with the name `launch_botica.bat`.
+
+    Alternatively, you can use a defined command that performs the same execution process:
 
     ```
     mvn exec:exec@launch-botica-windows
     ```
     
-    If, on the other hand, you are using a **Unix-based system**, you should run the following maven command at the root of the project:
+    If, on the other hand, you are using a **Unix-based system**, you can **run the generated .sh file** in the root of your project with the name `launch_botica.sh`.
+
+    Alternatively, you can use a defined command that performs the same execution process:
     
     ```
     mvn exec:exec@launch-botica-unix
