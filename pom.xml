@@ -124,7 +124,7 @@
               <mainClass>com.restestica.main.LaunchCollector</mainClass>
             </configuration>
           </execution>
-          <!-- Launch collector -->
+          <!-- Launch shutdown -->
           <execution>
             <id>launch-shutdown</id>
             <goals>
