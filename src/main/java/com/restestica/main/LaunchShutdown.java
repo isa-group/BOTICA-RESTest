@@ -6,6 +6,7 @@ import com.botica.runners.ShutdownLoader;
 import com.botica.utils.shutdown.ShutdownUtils;
 
 public class LaunchShutdown {
+
     private static String shutdownPropertiesFilePath = "src/main/resources/BOTICAConfig/shutdown.properties";
 
     public static void main(String[] args) {
@@ -16,11 +17,12 @@ public class LaunchShutdown {
 
         ShutdownLoader shutdownLoader = new ShutdownLoader(shutdownPropertiesFilePath, true);
 
-        List<String> botBotsToShutdown = shutdownLoader.getBotsToShutdown();
+        List<String> botBotsToShutDown = shutdownLoader.getBotsToShutDown();
         String host = shutdownLoader.getHost();
         String shutdownCommandType = shutdownLoader.getShutdownCommandType();
         Integer timeToWait = shutdownLoader.getTimeToWait();
+        String shutdownQueue = shutdownLoader.getShutdownQueue();
         
-        ShutdownUtils.closing();
+        ShutdownUtils.shutdown(botBotsToShutDown, shutdownCommandType, timeToWait, shutdownQueue, host);
     }
 }
