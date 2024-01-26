@@ -6,6 +6,7 @@ import com.botica.utils.configuration.CreateConfiguration;
 public class ConfigurationSetup {
 
     private static String configurationPropertiesFilePath = "src/main/resources/BOTICAConfig/configuration-setup.properties";
+    private static String shutdownPropertiesFilePath = "src/main/resources/BOTICAConfig/shutdown.properties";
 
     public static void main(String[] args) {
 
@@ -47,5 +48,6 @@ public class ConfigurationSetup {
         CreateConfiguration.createWindowsInitVolumeScript(windowsInitVolumeScriptPath);
         CreateConfiguration.createUnixMainScript(unixMainLaunchScript, dummyDockerfilePath, unixInitVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
         CreateConfiguration.createWindowsMainScript(windowsMainLaunchScript, dummyDockerfilePath, windowsInitVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
+        CreateConfiguration.addBotIdsToShutdownProperties(shutdownPropertiesFilePath);
     }
 }
