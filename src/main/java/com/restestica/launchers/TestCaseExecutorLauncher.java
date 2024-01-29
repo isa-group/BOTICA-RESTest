@@ -78,4 +78,9 @@ public class TestCaseExecutorLauncher extends AbstractLauncher{
 
         return message;
     }
+
+    @Override
+    protected boolean shutdownCondition() {
+        return false;
+    }
 }

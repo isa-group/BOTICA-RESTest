@@ -135,4 +135,9 @@ public class TestCaseGeneratorLauncher extends AbstractLauncher {
         }
         return generator;
     }
+
+    @Override
+    protected boolean shutdownCondition() {
+        return true;
+    }
 }
