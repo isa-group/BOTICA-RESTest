@@ -1,13 +1,13 @@
 # BOTICA - RESTest
 
 > [!NOTE]
-> This project was created using the [BOTICA template for Java](https://github.com/migromarj/BOTICA-java-template).
+> This project was created using the [BOTICA template for Java](https://github.com/isa-group/BOTICA-java-template).
 
 ## Running RESTest with BOTICA
 
 1. **Clone or download the project from the repository.**
 
-2. **Install BOTICA as a local dependency, following the steps described at [BOTICA README](https://github.com/migromarj/BOTICA#installing-botica-as-a-local-dependency).**
+2. **Install BOTICA as a local dependency, following the steps described at [BOTICA README](https://github.com/isa-group/BOTICA#installing-botica-as-a-local-dependency).**
 
 3. **Compiling the project.**
 
