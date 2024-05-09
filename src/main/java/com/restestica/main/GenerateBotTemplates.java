@@ -1,6 +1,6 @@
 package com.restestica.main;
 
-import com.botica.utils.templates.TemplateGenerator;
+import es.us.isa.botica.utils.templates.TemplateGenerator;
 
 public class GenerateBotTemplates {
 

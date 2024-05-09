@@ -1,7 +1,7 @@
 package com.restestica.main;
 
-import com.botica.runners.ConfigurationLoader;
-import com.botica.utils.configuration.CreateConfiguration;
+import es.us.isa.botica.runners.ConfigurationLoader;
+import es.us.isa.botica.utils.configuration.CreateConfiguration;
 
 public class ConfigurationSetup {
 
