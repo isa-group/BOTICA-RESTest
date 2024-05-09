@@ -10,7 +10,7 @@ import java.util.Properties;
 
 import org.json.JSONObject;
 
-import com.botica.launchers.AbstractLauncher;
+import es.us.isa.botica.launchers.AbstractLauncher;
 import com.restestica.utils.PropertyReader;
 
 import es.us.isa.restest.coverage.CoverageGatherer;
@@ -52,7 +52,7 @@ public class TestReporterLauncher extends AbstractLauncher {
             logger.error("Error writing test cases to file: {}", e.getMessage());
         }
 
-        RESTestLoader loader = new RESTestLoader(propertyFilePath, true);
+        RESTestLoader loader = new RESTestLoader(propertyFilePath);
         try{
             loader.createGenerator(); //TODO: FIX (It is necessary to assign value to spec property in the Loader class)
         }catch(RESTestException e){

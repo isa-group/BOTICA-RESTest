@@ -2,8 +2,8 @@ package com.restestica.main;
 
 import java.util.List;
 
-import com.botica.runners.CollectorLoader;
-import com.botica.utils.collector.CollectorUtils;
+import es.us.isa.botica.runners.CollectorLoader;
+import es.us.isa.botica.utils.collector.CollectorUtils;
 
 import com.github.dockerjava.api.DockerClient;
 

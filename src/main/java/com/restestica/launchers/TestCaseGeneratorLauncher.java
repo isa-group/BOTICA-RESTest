@@ -12,7 +12,7 @@ import java.util.Properties;
 
 import org.json.JSONObject;
 
-import com.botica.launchers.AbstractLauncher;
+import es.us.isa.botica.launchers.AbstractLauncher;
 import com.restestica.utils.PropertyReader;
 
 import es.us.isa.restest.generators.*;
@@ -59,8 +59,8 @@ public class TestCaseGeneratorLauncher extends AbstractLauncher {
             this.absractTestCaseGenerator = generator;
 
             auxBotAction(this.loader, this.absractTestCaseGenerator);
-        
-        }catch (RESTestException e){
+
+        } catch (RESTestException e) {
             logger.error("Error launching test generator: {}", this.botId, e);
         }
     }
@@ -84,9 +84,9 @@ public class TestCaseGeneratorLauncher extends AbstractLauncher {
         return message;
     }
 
-    private void auxBotAction(RESTestLoader loader, AbstractTestCaseGenerator generator){
-        Collection<TestCase> testCases = null; 
-        try{
+    private void auxBotAction(RESTestLoader loader, AbstractTestCaseGenerator generator) {
+        Collection<TestCase> testCases = null;
+        try {
             testCases = generator.generate();
         } catch (RESTestException e) {
             logger.error("Error generating test cases: {}", e.getMessage());
@@ -100,7 +100,7 @@ public class TestCaseGeneratorLauncher extends AbstractLauncher {
         }
         this.testCasesPath = targetDir + "/t.tmp";
         try (FileOutputStream fos = new FileOutputStream(this.testCasesPath);
-                ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
             oos.writeObject(testCases);
         } catch (IOException e) {
             logger.error("Error writing test cases to file: {}", e.getMessage());
@@ -117,7 +117,7 @@ public class TestCaseGeneratorLauncher extends AbstractLauncher {
     private static AbstractTestCaseGenerator getGenerator(RESTestLoader loader, String generatorType) throws RESTestException {
         AbstractTestCaseGenerator generator = null;
 
-        switch (generatorType){
+        switch (generatorType) {
             case "FT":
                 generator = (FuzzingTestCaseGenerator) loader.createGenerator();
                 break;

@@ -5,9 +5,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import com.botica.launchers.AbstractLauncher;
-import com.botica.runners.BOTICALoader;
-import com.botica.utils.bot.BotHandler;
+import es.us.isa.botica.launchers.AbstractLauncher;
+import es.us.isa.botica.runners.BOTICALoader;
+import es.us.isa.botica.utils.bot.BotHandler;
 
 public class LaunchBot {
 

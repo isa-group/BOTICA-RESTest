@@ -15,9 +15,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.botica</groupId>
+      <groupId>io.github.isa-group</groupId>
       <artifactId>botica</artifactId>
-      <version>0.1.0</version>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.json/json -->
