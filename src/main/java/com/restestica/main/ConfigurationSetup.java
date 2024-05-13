@@ -31,8 +31,6 @@ public class ConfigurationSetup {
         String dummyDockerfilePath = configurationLoader.getDummyDockerfilePath();
         String boticaDockerfilePath = configurationLoader.getBoticaDockerfilePath();
         String jarFileName = configurationLoader.getJarFileName();
-        String unixInitVolumeScriptPath = configurationLoader.getUnixInitVolumeScriptPath();
-        String windowsInitVolumeScriptPath = configurationLoader.getWindowsInitVolumeScriptPath();
         String unixMainLaunchScript = configurationLoader.getUnixMainLaunchScript();
         String windowsMainLaunchScript = configurationLoader.getWindowsMainLaunchScript();
         String boticaImageName = configurationLoader.getBoticaImageName();
@@ -42,12 +40,9 @@ public class ConfigurationSetup {
         CreateConfiguration.createRabbitMQPortsConfigurationFile(rabbitMQPortsConfigurationPath, rabbitMQAMQPPort, rabbitMQUIPort);
         CreateConfiguration.createRabbitMQConnectionFile(rabbitMQConnectionPath, rabbitMQUsername, rabbitMQPassword, rabbitMQHost, rabbitMQAMQPPort, rabbitMQExchange);
         CreateConfiguration.createDockerCompose(dockerComposePath, rabbitMQPortsConfigurationPath, rabbitMQConfigurationPath,rabbitMQAMQPPort, rabbitMQUIPort);
-        CreateConfiguration.createDummyDockerfile(dummyDockerfilePath);
         CreateConfiguration.createBoticaDockerfile(boticaDockerfilePath, jarFileName);
-        CreateConfiguration.createUnixInitVolumeScript(unixInitVolumeScriptPath);
-        CreateConfiguration.createWindowsInitVolumeScript(windowsInitVolumeScriptPath);
-        CreateConfiguration.createUnixMainScript(unixMainLaunchScript, dummyDockerfilePath, unixInitVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
-        CreateConfiguration.createWindowsMainScript(windowsMainLaunchScript, dummyDockerfilePath, windowsInitVolumeScriptPath, dockerComposePath, boticaDockerfilePath, boticaImageName);
+        CreateConfiguration.createUnixMainScript(unixMainLaunchScript, dummyDockerfilePath, dockerComposePath, boticaDockerfilePath, boticaImageName);
+        CreateConfiguration.createWindowsMainScript(windowsMainLaunchScript, dummyDockerfilePath, dockerComposePath, boticaDockerfilePath, boticaImageName);
         CreateConfiguration.addBotIdsToShutdownProperties(shutdownPropertiesFilePath);
     }
 }

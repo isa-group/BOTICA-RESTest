@@ -114,16 +114,6 @@
               <executable>launch_botica.bat</executable>
             </configuration>
           </execution>
-          <!-- Launch collector -->
-          <execution>
-            <id>launch-collector</id>
-            <goals>
-              <goal>java</goal>
-            </goals>
-            <configuration>
-              <mainClass>com.restestica.main.LaunchCollector</mainClass>
-            </configuration>
-          </execution>
           <!-- Launch shutdown -->
           <execution>
             <id>launch-shutdown</id>

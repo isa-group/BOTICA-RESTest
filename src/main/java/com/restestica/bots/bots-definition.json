@@ -16,11 +16,23 @@
             ],
             "queueByBot": true
         },
-        "requiredPaths": [
-            "./src/main/resources/Examples",
-            "./src/main/resources/config.properties",
-            "./src/main/resources/fuzzing-dictionary.json",
-            "./target"
+        "mount": [
+            {
+                "source": "./src/main/resources/Examples",
+                "target": "/app/src/main/resources/Examples"
+            },
+            {
+                "source": "./src/main/resources/config.properties",
+                "target": "/app/src/main/resources/config.properties"
+            },
+            {
+                "source": "./src/main/resources/fuzzing-dictionary.json",
+                "target": "/app/src/main/resources/fuzzing-dictionary.json"
+            },
+            {
+                "source": "./target",
+                "target": "/app/target"
+            }
         ],
         "bots": [
             {
@@ -55,8 +67,11 @@
             ],
             "queueByBot": false
         },
-        "requiredPaths": [
-            "./target"
+        "mount": [
+            {
+                "source": "./target",
+                "target": "/app/target"
+            }
         ],
         "bots": [
             {
@@ -85,10 +100,19 @@
             ],
             "queueByBot": false
         },
-        "requiredPaths": [
-            "./allure",
-            "./src/main/resources/allure-categories.json",
-            "./target"
+        "mount": [
+            {
+                "source": "./allure",
+                "target": "/app/allure"
+            },
+            {
+                "source": "./src/main/resources/allure-categories.json",
+                "target": "/app/src/main/resources/allure-categories.json"
+            },
+            {
+                "source": "./target",
+                "target": "/app/target"
+            }
         ],
         "bots": [
             {
