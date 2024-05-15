@@ -19,7 +19,7 @@
         "mount": [
             {
                 "source": "./src/main/resources/Examples",
-                "target": "/app/src/main/resources/Examples"
+                "target": "/app/config/Examples"
             },
             {
                 "source": "./src/main/resources/config.properties",
@@ -30,14 +30,14 @@
                 "target": "/app/src/main/resources/fuzzing-dictionary.json"
             },
             {
-                "source": "./target",
-                "target": "/app/target"
+                "source": "./output",
+                "target": "/app/output"
             }
         ],
         "bots": [
             {
                 "botId": "gen_4",
-                "propertyFilePath": "src/main/resources/Examples/Ex4_CBTGeneration/user_config.properties",
+                "propertyFilePath": "/app/config/Examples/Ex4_CBTGeneration/user_config.properties",
                 "isPersistent": true,
                 "autonomy": {
                     "initialDelay": 120,
@@ -46,7 +46,7 @@
             },
             {
                 "botId": "gen_5",
-                "propertyFilePath": "src/main/resources/Examples/Ex5_CBTGeneration/user_config.properties",
+                "propertyFilePath": "/app/config/Examples/Ex5_CBTGeneration/user_config.properties",
                 "isPersistent": true
             }
         ]
@@ -69,8 +69,8 @@
         },
         "mount": [
             {
-                "source": "./target",
-                "target": "/app/target"
+                "source": "./output",
+                "target": "/app/output"
             }
         ],
         "bots": [
@@ -107,11 +107,11 @@
             },
             {
                 "source": "./src/main/resources/allure-categories.json",
-                "target": "/app/src/main/resources/allure-categories.json"
+                "target": "/app/config/allure-categories.json"
             },
             {
-                "source": "./target",
-                "target": "/app/target"
+                "source": "./output",
+                "target": "/app/output"
             }
         ],
         "bots": [
