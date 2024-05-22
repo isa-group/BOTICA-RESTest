@@ -44,18 +44,7 @@
     ```
     mvn exec:exec@launch-botica-unix
     ```
-
-6. **Launch the data collector bot.**
-
-   - To use the default file located in `src/main/resources/BOTICAConfig/collector.properties`, run the following maven command at the root of the project:
-       ```
-       mvn exec:java@launch-collector
-       ```
-   - To use a file located in another path, run the following maven command at the root of the project:
-       ```
-       mvn exec:java@launch-collector -Dexec.args="path/to/file"
-       ```
-7. **Shut down the the BOTICA environment.**
+6. **Shut down the the BOTICA environment.**
 
     To shut down the running BOTICA environment, run the following maven command at the root of the project:
     

@@ -2,26 +2,14 @@ package com.restestica.main;
 
 import java.util.List;
 
-import es.us.isa.botica.runners.CollectorLoader;
 import es.us.isa.botica.runners.ShutdownLoader;
 import es.us.isa.botica.utils.shutdown.ShutdownUtils;
 
 public class LaunchShutdown {
-    private static String shutdownPropertiesFilePath = "src/main/resources/BOTICAConfig/shutdown.properties";
-    private static String configurationPropertiesFilePath = "src/main/resources/BOTICAConfig/collector.properties";
+    private static String propertiesFilePath = "src/main/resources/BOTICAConfig/shutdown.properties";
 
     public static void main(String[] args) {
-
-        if (args.length > 0) {
-            shutdownPropertiesFilePath = args[0];
-        }
-
-        if (args.length > 1) {
-            configurationPropertiesFilePath = args[1];
-        }
-
-        ShutdownLoader shutdownLoader = new ShutdownLoader(shutdownPropertiesFilePath, true);
-        CollectorLoader collectorLoader = new CollectorLoader(configurationPropertiesFilePath, true);
+        ShutdownLoader shutdownLoader = new ShutdownLoader(propertiesFilePath, true);
 
         List<String> botBotsToShutDown = shutdownLoader.getBotsToShutDown();
         String host = shutdownLoader.getHost();
@@ -29,7 +17,6 @@ public class LaunchShutdown {
         Integer timeToWait = shutdownLoader.getTimeToWait();
         String shutdownQueue = shutdownLoader.getShutdownQueue();
 
-        ShutdownUtils.shutdown(botBotsToShutDown, shutdownCommandType, timeToWait, shutdownQueue, host,
-                collectorLoader);
+        ShutdownUtils.shutdown(botBotsToShutDown, shutdownCommandType, timeToWait, shutdownQueue, host);
     }
 }
