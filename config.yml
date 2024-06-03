@@ -1,0 +1,83 @@
+broker:
+  type: rabbitmq
+  username: "username"
+  password: "password"
+  port: 5672
+
+bots:
+  TestCaseGenerator: # TODO: still in uppercase, implementation limitations, changes scheduled
+    image: "restest-bot"
+    mount:
+      - source: "./output"
+        target: "/app/output"
+      - source: "./src/main/resources/Examples"
+        target: "/app/config/Examples"
+      - source: "./src/main/resources/config.properties"
+        target: "/app/src/main/resources/config.properties"
+      - source: "./src/main/resources/fuzzing-dictionary.json"
+        target: "/app/src/main/resources/fuzzing-dictionary.json"
+    lifecycle:
+      type: proactive
+      initialDelay: 60
+      period: 60
+    publish:
+      key: "testCasesGenerated"
+      order: "executeTestCases"
+    subscribe: [ "testOraclesGenerated" ]
+    instances:
+      generator-4:
+        persistent: true
+        environment:
+          - USER_CONFIG_PATH=/app/config/Examples/Ex4_CBTGeneration/user_config.properties
+      generator-5:
+        persistent: true
+        environment:
+          - USER_CONFIG_PATH=/app/config/Examples/Ex5_CBTGeneration/user_config.properties
+
+  TestCaseExecutor:
+    image: "restest-bot"
+    mount:
+      - source: "./output"
+        target: "/app/output"
+      - source: "./src/main/resources/Examples"
+        target: "/app/config/Examples"
+      - source: "./src/main/resources/config.properties"
+        target: "/app/src/main/resources/config.properties"
+    lifecycle:
+      type: reactive
+      order: "executeTestCases"
+    publish:
+      key: "testCasesExecuted"
+      order: "generateTestReport"
+    subscribe: [ "testCasesGenerated" ]
+    instances:
+      executor-1:
+        persistent: true
+      executor-2:
+        persistent: true
+
+  TestReporter:
+    image: "restest-bot"
+    mount:
+      - source: "./output"
+        target: "/app/output"
+      - source: "./src/main/resources/Examples"
+        target: "/app/config/Examples"
+      - source: "./src/main/resources/config.properties"
+        target: "/app/src/main/resources/config.properties"
+      - source: "./allure"
+        target: "/app/allure"
+      - source: "./src/main/resources/allure-categories.json"
+        target: "/app/config/allure-categories.json"
+    lifecycle:
+      type: reactive
+      order: "generateTestReport"
+    publish: # TODO: still mandatory, changes scheduled
+      key: "testReportGenerated"
+      order: "test"
+    subscribe: [ "testCasesExecuted" ]
+    instances:
+      reporter-1:
+        persistent: true
+      reporter-2:
+        persistent: true

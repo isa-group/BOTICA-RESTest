@@ -1,22 +1,15 @@
 package com.restestica.main;
 
-import java.util.List;
-
 import es.us.isa.botica.runners.ShutdownLoader;
 import es.us.isa.botica.utils.shutdown.ShutdownUtils;
+import java.io.File;
 
 public class LaunchShutdown {
-    private static String propertiesFilePath = "src/main/resources/BOTICAConfig/shutdown.properties";
+  private static final String DEFAULT_CONFIG_PATH = "config.yml";
 
-    public static void main(String[] args) {
-        ShutdownLoader shutdownLoader = new ShutdownLoader(propertiesFilePath, true);
-
-        List<String> botBotsToShutDown = shutdownLoader.getBotsToShutDown();
-        String host = shutdownLoader.getHost();
-        String shutdownCommandType = shutdownLoader.getShutdownCommandType();
-        Integer timeToWait = shutdownLoader.getTimeToWait();
-        String shutdownQueue = shutdownLoader.getShutdownQueue();
-
-        ShutdownUtils.shutdown(botBotsToShutDown, shutdownCommandType, timeToWait, shutdownQueue, host);
-    }
+  public static void main(String[] args) {
+    String configPath = args.length == 1 ? args[0] : DEFAULT_CONFIG_PATH;
+    ShutdownLoader shutdownLoader = new ShutdownLoader(new File(configPath));
+    ShutdownUtils.shutdown(shutdownLoader);
+  }
 }
