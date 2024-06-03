@@ -27,13 +27,6 @@
       <version>20231013</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/es.us.isa/json-mutator -->
-    <dependency>
-      <groupId>es.us.isa</groupId>
-      <artifactId>json-mutator</artifactId>
-      <version>0.0.1</version>
-    </dependency>
-
     <!-- https://mvnrepository.com/artifact/es.us.isa/restest -->
     <dependency>
       <groupId>es.us.isa</groupId>
@@ -71,7 +64,7 @@
                   <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                 </manifest>
               </archive>
-              <finalName>restestica</finalName>
+              <finalName>restest-bot</finalName>
               <appendAssemblyId>false</appendAssemblyId>
               <descriptorRefs>
                 <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -102,7 +95,7 @@
               <goal>exec</goal>
             </goals>
             <configuration>
-              <executable>launch_botica.sh</executable>
+              <executable>launch-botica.sh</executable>
             </configuration>
           </execution>
           <execution>
@@ -111,7 +104,7 @@
               <goal>exec</goal>
             </goals>
             <configuration>
-              <executable>launch_botica.bat</executable>
+              <executable>launch-botica.bat</executable>
             </configuration>
           </execution>
           <!-- Launch shutdown -->
